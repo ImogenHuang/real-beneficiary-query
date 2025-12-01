@@ -1,2 +1,12 @@
+# Chromium browser and its driver
 chromium
 chromium-driver
+
+# 必要的共用函式庫 (Shared Libraries)
+# 這些是讓 Headless Chrome/Chromium 成功啟動所必需的 Linux 系統依賴
+libnss3
+libgconf-2-4
+libxss1
+libasound2
+libatk1.0-0
+libgtk-3-0
