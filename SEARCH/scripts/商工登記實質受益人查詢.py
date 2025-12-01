@@ -74,7 +74,7 @@ class FindbizSeleniumScraper:
         self.base_url = "https://findbiz.nat.gov.tw/fts/query/QueryBar/queryInit.do"
         chrome_options = Options()
         if headless:
-            chrome_options.add_argument('--headless=new')
+            chrome_options.add_argument('--headless')
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
@@ -1063,4 +1063,5 @@ def main():
         print("輸入不可為空")
 
 if __name__ == "__main__":
+
    main()
