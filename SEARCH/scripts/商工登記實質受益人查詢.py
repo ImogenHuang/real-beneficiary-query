@@ -19,6 +19,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 import os
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.core.os_manager import ChromeType
 
 # ========== 全域設定 ==========
 COMPANY_SEARCH_URL = "https://opendata.vip/data/company?keyword={keyword}"
@@ -1066,4 +1068,5 @@ def main():
 if __name__ == "__main__":
 
    main()
+
 
