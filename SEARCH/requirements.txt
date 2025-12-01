@@ -6,5 +6,5 @@ lxml
 streamlit
 openpyxl
 webdriver-manager
-streamlit-chromium
-streamlit-selenium-test
+
+
