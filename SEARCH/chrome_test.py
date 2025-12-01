@@ -5,15 +5,39 @@ Created on Mon Dec  1 16:44:57 2025
 @author: user
 """
 
-import os
 import streamlit as st
 
-st.write("### 環境診斷")
-st.write("Chromium 位置:", os.path.exists("/usr/bin/chromium"))
-st.write("ChromeDriver 位置:", os.path.exists("/usr/bin/chromedriver"))
+"""
+## Web scraping on Streamlit Cloud with Selenium
 
-# 列出可用的驅動程式
-if os.path.exists("/usr/bin/"):
-    files = os.listdir("/usr/bin/")
-    chrome_files = [f for f in files if 'chrom' in f.lower()]
-    st.write("找到的 Chrome 相關檔案:", chrome_files)
+[![Source](https://img.shields.io/badge/View-Source-<COLOR>.svg)](https://github.com/snehankekre/streamlit-selenium-chrome/)
+
+This is a minimal, reproducible example of how to scrape the web with Selenium and Chrome on Streamlit's Community Cloud.
+
+Fork this repo, and edit `/streamlit_app.py` to customize this app to your heart's desire. :heart:
+"""
+
+with st.echo():
+    from selenium import webdriver
+    from selenium.webdriver.chrome.options import Options
+    from selenium.webdriver.chrome.service import Service
+    from webdriver_manager.chrome import ChromeDriverManager
+    from webdriver_manager.core.os_manager import ChromeType
+
+    @st.cache_resource
+    def get_driver():
+        return webdriver.Chrome(
+            service=Service(
+                ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()
+            ),
+            options=options,
+        )
+
+    options = Options()
+    options.add_argument("--disable-gpu")
+    options.add_argument("--headless")
+
+    driver = get_driver()
+    driver.get("https://www.google.com")
+
+    st.code(driver.page_source)
