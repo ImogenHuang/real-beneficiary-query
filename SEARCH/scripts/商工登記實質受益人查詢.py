@@ -83,7 +83,8 @@ class FindbizSeleniumScraper:
         chrome_options.add_argument('--blink-settings=imagesEnabled=false')
         chrome_options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36')
         
-        service = Service(driver_path) if driver_path else Service()
+        #service = Service(driver_path) if driver_path else Service()
+        service = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
         self.driver = webdriver.Chrome(service=service, options=chrome_options)
         self.wait = WebDriverWait(self.driver, 10)
 
@@ -1065,3 +1066,4 @@ def main():
 if __name__ == "__main__":
 
    main()
+
