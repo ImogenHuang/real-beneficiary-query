@@ -47,4 +47,14 @@ def get_driver():
 
 # 測試執行
 st.title("Selenium 測試 (絕對路徑版)")
-# ... 保持你的 Streamlit 運行邏輯 (例如按鈕和 try/except) 不變 ...
+# 測試執行
+if st.button("啟動爬蟲"):
+    try:
+        with st.spinner("正在啟動瀏覽器..."):
+            driver = get_driver()
+            driver.get("https://www.google.com")
+            st.success(f"成功開啟網頁，標題為: {driver.title}")
+            driver.quit()
+    except Exception as e:
+        st.error(f"執行錯誤: {e}")
+
