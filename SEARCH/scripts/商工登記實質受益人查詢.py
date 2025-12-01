@@ -86,7 +86,7 @@ class FindbizSeleniumScraper:
         chrome_options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36')
         
         #service = Service(driver_path) if driver_path else Service()
-        options.binary_location="/user/bin/chromium"
+        chrome_options.binary_location="/user/bin/chromium"
         service = Service("/user/bin/chromedriver")
         self.driver = webdriver.Chrome(service=service, options=chrome_options)
         self.wait = WebDriverWait(self.driver, 10)
@@ -1069,6 +1069,7 @@ def main():
 if __name__ == "__main__":
 
    main()
+
 
 
 
