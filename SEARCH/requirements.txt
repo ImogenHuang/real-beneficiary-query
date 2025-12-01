@@ -6,5 +6,6 @@ lxml
 streamlit
 openpyxl
 webdriver-manager
+seleniumbase
 
 
